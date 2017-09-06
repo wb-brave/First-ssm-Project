@@ -7,7 +7,7 @@ import cn.wb.ssm.dao.AccountMapper;
 import cn.wb.ssm.entity.Account;
 import cn.wb.ssm.service.AccountService;
 
-@Service("supplierService")
+@Service("accountService")
 public class AccountServiceImpl implements AccountService {
 
 	@Autowired
