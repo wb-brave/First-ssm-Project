@@ -13,4 +13,29 @@
   <insert id="insert" parameterType="cn.wb.ssm.entity.Supplier">
 	insert into supplier(sup_name,sup_address) values(#{supName},#{supAddress})
   </insert>
+  
+  <select id="selectPageList" parameterType="cn.wb.ssm.entity.Page" resultMap="supplierResultMap">
+  	select * from supplier where sup_name like #{keyWord} limit #{start},#{rows}
+  </select>
+
+  <select id="selectPageCount" parameterType="cn.wb.ssm.entity.Page" resultType="Integer">
+  	select count(1) from supplier where sup_name like #{keyWord}
+  </select>
+  
+  <select id="selectPageListDyc" parameterType="cn.wb.ssm.entity.Page" resultMap="supplierResultMap">
+  	select * from supplier
+  	<where>
+  		<if test="#{paramEntity.supName}!=null">and sup_name like #{paramEntity.supName}</if>
+  		<if test="#{paramEntity.supAddress}!=null">and sup_address like #{paramEntity.supAddress}</if>
+  	</where>
+  	limit #{start},#{rows}
+  </select>
+
+  <select id="selectPageListDycCount" parameterType="cn.wb.ssm.entity.Page" resultMap="supplierResultMap">
+  	select count(1) from supplier
+  	<where>
+  		<if test="#{paramEntity.supName}!=null">and sup_name like #{paramEntity.supName}</if>
+  		<if test="#{paramEntity.supAddress}!=null">and sup_address like #{paramEntity.supAddress}</if>
+  	</where>
+  </select>
 </mapper>

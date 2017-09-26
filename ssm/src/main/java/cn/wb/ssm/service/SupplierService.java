@@ -4,4 +4,5 @@ import cn.wb.ssm.entity.Supplier;
 
 public interface SupplierService extends BaseService<Supplier> {
 
+	
 }

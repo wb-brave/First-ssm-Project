@@ -9,6 +9,6 @@
   </resultMap>
  	
   	<select id="login" parameterType="cn.wb.ssm.entity.Account" resultMap="accountResultMap">
-  		select * from account where acc_name = #{accName} and acc_pass = #{accPass};
+  		select * from account where acc_login = #{accLogin} and acc_pass = #{accPass};
   	</select>
 </mapper>
