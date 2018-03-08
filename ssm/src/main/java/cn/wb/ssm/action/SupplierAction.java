@@ -32,12 +32,13 @@ public class SupplierAction extends BaseAction{
 	@RequestMapping("/supplierPage")
 	@ResponseBody
 	public Object selectPageList(Page<Supplier> page){
-		Page<Supplier> p = supplierService.selectPageList(page);
-		Map<String, Object> pageMap = new HashMap<>();
-		pageMap.put("total", p.getTotalRecord());
-		pageMap.put("rows",p.getPageList());
-		p.setPageMap(pageMap);
-		return p.getPageMap();
+		Page p = supplierService.selectPageList(page);
+		System.out.println("----page:"+page);
+		//supplier.setSupName("supName1");
+		/*Map<String, Object> map =new HashMap<String, Object>();
+		map.put("total",p.getTotalRecord());
+		map.put("rows",p.getList());*/
+		return page.getPageMap();
 	}
 /*	”≈ªØ«∞
  * 

@@ -41,7 +41,7 @@ public class SupplierServiceImpl implements SupplierService {
 	@Override
 	public Page<Supplier> selectPageList(Page<Supplier> page) {
 
-		page.setPageList(supplierMapper.selectPageList(page));
+		page.setList(supplierMapper.selectPageList(page));
 		page.setTotalRecord(supplierMapper.selectPageCount(page));
 		return page;
 	}
@@ -49,7 +49,7 @@ public class SupplierServiceImpl implements SupplierService {
 	@Override
 	public Page<Supplier> selectPageListDyc(Page<Supplier> page) {
 
-		page.setPageList(supplierMapper.selectPageListDyc(page));
+		page.setList(supplierMapper.selectPageListDyc(page));
 		page.setTotalRecord(supplierMapper.selectPageListDycCount(page));
 		return page;
 	}

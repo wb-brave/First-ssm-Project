@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.wb.ssm.entity.Page;
 
+
 public interface BaseMapper<T> {
 
 	public int insert(T t);
