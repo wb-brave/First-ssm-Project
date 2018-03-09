@@ -31,8 +31,13 @@ public class SupplierAction extends BaseAction{
 	
 	@RequestMapping("/supplierPage")
 	@ResponseBody
-	public Object selectPageList(Page<Supplier> page){
-		Page p = supplierService.selectPageList(page);
+	public Object selectPageList(Page<Supplier> page) throws Exception{
+		try {
+			Page p = supplierService.selectPageList(page);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("----page:"+page);
 		//supplier.setSupName("supName1");
 		/*Map<String, Object> map =new HashMap<String, Object>();
@@ -62,10 +67,16 @@ public class SupplierAction extends BaseAction{
 	*/
 	@RequestMapping("/supplierPageDyc")
 	@ResponseBody
-	public Object selectPageListDyc(Page<Supplier> page, Supplier supplier){
+	public Object selectPageListDyc(Page<Supplier> page, Supplier supplier) throws Exception{
 		
 		page.setParamEntity(supplier);
-		Page<Supplier> p = supplierService.selectPageListDyc(page);
+		Page<Supplier> p = null;
+		try {
+			p = supplierService.selectPageListDyc(page);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return p.getPageMap();
 	}
 	@RequestMapping(value = "/dd")
@@ -73,5 +84,33 @@ public class SupplierAction extends BaseAction{
 		System.out.println("insert into supplier" + supplier);
 	
 		return "forward:/jsp/main.jsp";
+	}
+	
+	@RequestMapping("/deleteList")
+	@ResponseBody //如果返回json格式，需要这个注解，这里用来测试环境
+	public Object deleteList(String [] pks){
+		System.out.println("---doAjax.deleteList:"+pks);
+		int i = 0;
+		try {
+			i = supplierService.deleteList(pks);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return i;
+	}
+	
+	@RequestMapping(value="/update")
+	@ResponseBody //如果返回json格式，需要这个注解，这里用来测试环境
+	public Object update(Supplier supplier){
+		System.out.println("---action.update.supplier:"+supplier);
+		int i = 0;
+		try {
+			i = supplierService.update(supplier);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return i;
 	}
 }

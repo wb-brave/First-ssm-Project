@@ -27,7 +27,7 @@ public class AccountAction extends BaseAction{
 //		acc = accountService.login(account);
 		if(accountService.login(account)!=null){
 			session.setAttribute("acc", acc);
-			return "forward:/main.jsp";
+			return "forward:/WEB-INF/main/main.jsp";
 		}else{
 			request.setAttribute("msg", "用户名或密码错误！！！！");
 			return "forward:/login.jsp";

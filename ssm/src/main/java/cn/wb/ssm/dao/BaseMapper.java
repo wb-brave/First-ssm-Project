@@ -13,7 +13,10 @@ public interface BaseMapper<T> {
 	
 	public int update(T t);
 	
-	public int select(T t);
+	//通过主键（数组）批量删除数据
+	public int deleteList(String [] pks);	
+	
+	public T select(T t);
 	
 	public List<T> selectPageList(Page<T> page);
 	public Integer selectPageCount(Page<T> page);
