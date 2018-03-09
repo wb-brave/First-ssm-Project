@@ -43,7 +43,7 @@
 <body class="easyui-layout">
 	<!-- 头部 -->
 	<div data-options="region:'north',title:'欢迎使用进销存管理系统',split:true"
-		style="height:130px;">欢迎您 ：${sessionScope.account.accLogin}</div>
+		style="height:130px;">欢迎您 ：${sessionScope.acc.accLogin}</div>
 	<!-- 左边导航 -->
 	<div data-options="region:'west',title:'导航菜单',split:true"
 		style="width:150px;">

@@ -18,7 +18,7 @@
 			$('#dg').datagrid({    
 			    //url:'${proPath}/supplier/selectPage.action', //通过关键字查询
 			    //支持多条件查询
-			    url:'${proPath}/supplier/selectPageUseDyc.action', 
+			    url:'${proPath}/supplier/supplierPageDyc.action', 
 			    
 			    fitColumns:true,
 			    nowrapL:true,
