@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SysInitServlet
  */
-@WebServlet("/SysInitServlet")
 public class SysInitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,24 +21,6 @@ public class SysInitServlet extends HttpServlet {
 	 */
 	public SysInitServlet() {
 		super();
-		Map<String, Object> sysParamMap = new HashMap<String, Object>();
-
-		Map<String, Object> supTypeMap = new HashMap<String, Object>();
-		supTypeMap.put("1", "一级供应商");
-		supTypeMap.put("2", "二级供应商");
-		supTypeMap.put("3", "三级供应商");
-
-		sysParamMap.put("supType", supTypeMap);
-
-		Map<String, Object> goodsColorMap = new HashMap<String, Object>();
-		goodsColorMap.put("1", "红色");
-		goodsColorMap.put("2", "绿色");
-		goodsColorMap.put("3", "蓝色");
-		sysParamMap.put("goodsColor", goodsColorMap);
-
-		this.getServletContext().setAttribute("sysParam", sysParamMap);
-
-		System.out.println("-------------------系统参数加载成功---------------------");
 	}
 
 	/**
@@ -68,5 +49,33 @@ public class SysInitServlet extends HttpServlet {
 		super.destroy();
 	}
 
+	/**
+	 * Initialization of the servlet. <br>
+	 *
+	 * @throws ServletException if an error occurs
+	 */
+	public void init() throws ServletException {
+		// Put your code here
+		Map<String,Object> sysParamMap =new HashMap<String,Object>();
+		
+		Map<String,Object> supTypeMap =new HashMap<String,Object>();
+		supTypeMap.put("1", "一级供应商");
+		supTypeMap.put("2", "二级供应商");
+		supTypeMap.put("3", "三级供应商");
+		
+		sysParamMap.put("supType", supTypeMap);
+
+		Map<String,Object> goodsColorMap =new HashMap<String,Object>();
+		goodsColorMap.put("1","红色");
+		goodsColorMap.put("2","绿色");
+		goodsColorMap.put("3","蓝色");
+		sysParamMap.put("goodsColor", goodsColorMap);
+		
+		this.getServletContext().setAttribute("sysParam", sysParamMap);
+		
+		System.out.println("-------------------系统参数加载成功---------------------");
+
+
+	}
 	
 }

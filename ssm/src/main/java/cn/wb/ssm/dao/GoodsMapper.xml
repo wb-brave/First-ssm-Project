@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.wb.ssm.dao.GoodsMapper" >
-  <resultMap id="BaseResultMap" type="cn.wb.ssm.entity.Goods" >
+  <resultMap id="goodsResultMap" type="cn.wb.ssm.entity.Goods" >
     <id column="goods_Id" property="goodsId" jdbcType="VARCHAR" />
     <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
     <result column="goods_unit" property="goodsUnit" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
   </resultMap>
   
    <!-- 通过多条件分页查询，返回数据集 -->
-  <select id="selectPageListUseDyc" parameterType="page" resultMap="goodsResultMap" >
+  <select id="selectPageListDyc" parameterType="page" resultMap="goodsResultMap" >
     select * from goods 
     <where>
     	<if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
@@ -26,7 +26,7 @@
   </select>
   
   <!-- 通过多条件分页查询，返回总记录数 -->
-  <select id="selectPageCountUseDyc" parameterType="page" resultType="Integer">
+  <select id="selectPageListDycCount" parameterType="page" resultType="Integer">
   	select count(1) from goods 
   	  <where>
     	<if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
