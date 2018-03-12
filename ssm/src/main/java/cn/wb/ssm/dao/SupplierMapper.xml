@@ -10,10 +10,22 @@
     <result column="sup_remark" property="supRemark" jdbcType="VARCHAR" />
   </resultMap>
   
-  <insert id="insert" parameterType="cn.wb.ssm.entity.Supplier">
-	insert into supplier(sup_name,sup_address) values(#{supName},#{supAddress})
-  </insert>
+  <insert id="insert" parameterType="supplier">
+		insert into supplier
+		(sup_id,sup_name,sup_linkman,sup_phone,sup_address,sup_remark,sup_type,sup_pay)
+		values
+		(#{supId},#{supName},#{supLinkman},#{supPhone},#{supAddress},#{supRemark},#{supType},#{supPay});
+	</insert>
   
+  <!-- 根据主键修改供应商信息 -->
+	<update id="update" parameterType="supplier" >
+		update supplier set
+		sup_name=#{supName},sup_linkman=#{supLinkman},sup_phone=#{supPhone},
+		sup_address=#{supAddress},sup_remark=#{supRemark},sup_type=#{supType},sup_pay=#{supPay}
+		where
+		sup_id=#{supId}	
+	</update>
+	
   <select id="selectPageList" parameterType="cn.wb.ssm.entity.Page" resultMap="supplierResultMap">
   	select * from supplier where sup_name like #{keyWord} limit #{start},#{rows}
   </select>

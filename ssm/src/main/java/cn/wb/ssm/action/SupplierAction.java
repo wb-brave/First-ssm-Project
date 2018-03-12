@@ -22,11 +22,14 @@ public class SupplierAction extends BaseAction{
 	private SupplierService supplierService;
 	
 	@RequestMapping(value = "/insert")
-	public String insert(Supplier supplier) throws Exception{
+	@ResponseBody
+	public int insert(Supplier supplier) throws Exception{
 		System.out.println("insert into supplier" + supplier);
-		supplierService.insert(supplier);
+		int i = 0;
+		
+		i = supplierService.insert(supplier);
 	
-		return "forward:/jsp/main.jsp";
+		return i;
 	}
 	
 	@RequestMapping("/supplierPage")
@@ -102,7 +105,7 @@ public class SupplierAction extends BaseAction{
 	
 	@RequestMapping(value="/update")
 	@ResponseBody //如果返回json格式，需要这个注解，这里用来测试环境
-	public Object update(Supplier supplier){
+	public int update(Supplier supplier){
 		System.out.println("---action.update.supplier:"+supplier);
 		int i = 0;
 		try {

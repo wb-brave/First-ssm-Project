@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div id="loginDiv">
-		<form id="ff" method="post" action="${basePath}/account/login.action">
+		<form id="ff" method="post" action="${proPath}/account/login.action">
 			<div>
 				<label for="accLogin">账号:</label>
 				<!-- 采用 js验证 -->

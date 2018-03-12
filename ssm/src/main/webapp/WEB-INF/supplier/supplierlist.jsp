@@ -37,7 +37,7 @@
 					iconCls: 'icon-add',
 					text:'新增',
 					handler: function(){
-						alert('新增按钮');
+						/* alert('新增按钮'); */
 						parent.$('#win').window({    
 							title :'添加供应商',						
 						    width:600,    
@@ -52,7 +52,7 @@
 					iconCls: 'icon-edit',
 					text:'修改',
 					handler: function(){
-						alert('修改按钮');
+						/* alert('修改按钮'); */
 						//判断是否选中一行，并且只能选中一行进行修改
 						var array = $('#dg').datagrid("getSelections");
 						if(array.length!=1){
@@ -74,7 +74,7 @@
 					iconCls: 'icon-remove',
 					text:'删除',
 					handler: function(){
-						alert('删除按钮');
+						/* alert('删除按钮'); */
 						var array = $('#dg').datagrid("getSelections");
 						if(array.length>0){
 							alert("选中");
