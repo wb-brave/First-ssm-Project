@@ -43,8 +43,8 @@
   	limit #{start},#{rows}
   </select>
 
-  <select id="selectPageListDycCount" parameterType="cn.wb.ssm.entity.Page" resultMap="supplierResultMap">
-  	select count(1) from supplier
+  <select id="selectPageListDycCount" parameterType="cn.wb.ssm.entity.Page" resultType="Integer">
+  	select count(*) from supplier
   	<where>
   		<if test="#{paramEntity.supName}!=null">and sup_name like #{paramEntity.supName}</if>
   		<if test="#{paramEntity.supAddress}!=null">and sup_address like #{paramEntity.supAddress}</if>
