@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wb.ssm.dao.AccountRecordsMapper">
+  <resultMap id="BaseResultMap" type="cn.wb.ssm.entity.AccountRecords">
+    <id column="ar_id" jdbcType="VARCHAR" property="arId" />
+    <result column="sup_id" jdbcType="INTEGER" property="supId" />
+    <result column="ar_date" jdbcType="DATE" property="arDate" />
+    <result column="ar_order_id" jdbcType="VARCHAR" property="arOrderId" />
+    <result column="ar_bus_type" jdbcType="VARCHAR" property="arBusType" />
+    <result column="ar_payable" jdbcType="DECIMAL" property="arPayable" />
+    <result column="ar_paid" jdbcType="DECIMAL" property="arPaid" />
+    <result column="ar_arrears" jdbcType="DECIMAL" property="arArrears" />
+    <result column="ar_discount" jdbcType="DECIMAL" property="arDiscount" />
+    <result column="ar_attn" jdbcType="VARCHAR" property="arAttn" />
+    <result column="ar_operator" jdbcType="INTEGER" property="arOperator" />
+    <result column="ar_remark" jdbcType="VARCHAR" property="arRemark" />
+  </resultMap>
+  
+ 
+  <insert id="insert" parameterType="cn.wb.ssm.entity.AccountRecords">
+    insert into account_records (ar_id, sup_id, ar_date, 
+      ar_order_id, ar_bus_type, ar_payable, 
+      ar_paid, ar_arrears, ar_discount, 
+      ar_attn, ar_operator, ar_remark
+      )
+    values (#{arId,jdbcType=VARCHAR}, #{supId,jdbcType=INTEGER}, #{arDate,jdbcType=DATE}, 
+      #{arOrderId,jdbcType=VARCHAR}, #{arBusType,jdbcType=VARCHAR}, #{arPayable,jdbcType=DECIMAL}, 
+      #{arPaid,jdbcType=DECIMAL}, #{arArrears,jdbcType=DECIMAL}, #{arDiscount,jdbcType=DECIMAL}, 
+      #{arAttn,jdbcType=VARCHAR}, #{arOperator,jdbcType=INTEGER}, #{arRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+</mapper>

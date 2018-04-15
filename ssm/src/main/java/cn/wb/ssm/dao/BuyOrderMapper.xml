@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wb.ssm.dao.BuyOrderMapper">
+  <resultMap id="BaseResultMap" type="cn.wb.ssm.entity.BuyOrder">
+    <id column="bo_id" jdbcType="VARCHAR" property="boId" />
+    <result column="sup_id" jdbcType="INTEGER" property="supId" />
+    <result column="sh_id" jdbcType="VARCHAR" property="shId" />
+    <result column="bo_date" jdbcType="DATE" property="boDate" />
+    <result column="bo_payable" jdbcType="DECIMAL" property="boPayable" />
+    <result column="bo_paid" jdbcType="DECIMAL" property="boPaid" />
+    <result column="bo_arrears" jdbcType="DECIMAL" property="boArrears" />
+    <result column="bo_original" jdbcType="VARCHAR" property="boOriginal" />
+    <result column="bo_remark" jdbcType="VARCHAR" property="boRemark" />
+    <result column="bo_attn" jdbcType="VARCHAR" property="boAttn" />
+    <result column="bo_operator" jdbcType="INTEGER" property="boOperator" />
+  </resultMap>
+  
+  <insert id="insert" parameterType="cn.wb.ssm.entity.BuyOrder">
+    insert into buy_order (bo_id, sup_id, sh_id, 
+      bo_date, bo_payable, bo_paid, 
+      bo_arrears, bo_original, bo_remark, 
+      bo_attn, bo_operator)
+    values (#{boId,jdbcType=VARCHAR}, #{supId,jdbcType=INTEGER}, #{shId,jdbcType=VARCHAR}, 
+      #{boDate,jdbcType=DATE}, #{boPayable,jdbcType=DECIMAL}, #{boPaid,jdbcType=DECIMAL}, 
+      #{boArrears,jdbcType=DECIMAL}, #{boOriginal,jdbcType=VARCHAR}, #{boRemark,jdbcType=VARCHAR}, 
+      #{boAttn,jdbcType=VARCHAR}, #{boOperator,jdbcType=INTEGER})
+  </insert>
+  
+   <!-- 通过多条件分页查询，返回数据集 -->
+  <select id="selectPageListDyc" parameterType="page" resultMap="BaseResultMap" >
+    select * from goods 
+    <where>
+    	<if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
+    </where>
+	 limit #{start},#{rows}
+  </select>
+  
+  <!-- 通过多条件分页查询，返回总记录数 -->
+  <select id="selectPageListDycCount" parameterType="page" resultType="Integer">
+  	select count(1) from goods 
+  	  <where>
+    	<if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
+    </where>
+  </select>
+  
+  <delete id="deleteList">
+  	delete from buy_order_detail where bo_id in
+	<foreach collection="array" open="(" close=")" separator="," item="pk">
+		#{pk}
+	</foreach>
+	</delete>
+</mapper>

@@ -18,7 +18,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:mysql://localhost:3306/ssm?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="user" value="root" />
-		<property name="password" value="lsx520" />
+		<property name="password" value="123456" />
 	</bean>
 	<!-- 配置session工厂 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

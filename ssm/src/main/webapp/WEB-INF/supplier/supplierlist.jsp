@@ -77,7 +77,6 @@
 						/* alert('删除按钮'); */
 						var array = $('#dg').datagrid("getSelections");
 						if(array.length>0){
-							alert("选中");
 							
 							
 							//定义数组，通过下边的用来存储选中记录的Id
@@ -90,7 +89,7 @@
 						//如果需要锁整个页面，前面加parent.
 						parent.$.messager.confirm('删除对话框', '您确认要删除吗？', function(r) {
 							if (r) {
-								alert(r);
+								//alert(r);
 								$.ajax({
 								  url: "${proPath}/supplier/deleteList.action",
 								  type:"POST",
@@ -101,7 +100,7 @@
 									  if(html>0){
 									  	alert("恭喜您 ，删除成功，共删除了"+html+"条记录");
 									  }else{
-									  	alert("对不超 ，删除失败");
+									  	alert("对不起 ，删除失败");
 									  }
 								  //重新刷新页面
 								    $("#dg").datagrid("reload");
@@ -117,16 +116,6 @@
 
 							}
 						});
-
-							
-							
-							
-							
-							
-							
-							
-							
-							
 						}else{
 							alert("请选择需要删除的记录！");
 						}
@@ -165,11 +154,19 @@
 			}, {
 				field : 'supType',
 				title : '供应商类型',
-				width : 100
+				width : 100,
+				formatter: function(value,row,index){
+					var str = "${applicationScope.sysParam.supType}";			
+					return valueToText(str,value);				
+				}
+				
 			}, {
 				field : 'supAddress',
 				title : '供应商地址',
-				width : 100
+				width : 100,
+				formatter: function(value,row,index){
+					return "<span title='"+value+"'>"+value+"</span>";	
+				}
 			}, {
 				field : 'supRemark',
 				title : '备注',

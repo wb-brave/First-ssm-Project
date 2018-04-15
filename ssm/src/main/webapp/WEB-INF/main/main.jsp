@@ -9,13 +9,13 @@
 
 <script type="text/javascript">
 	$(function() {
+		//获得点击的 <a 标签
 		$("a[title]").click(function() {
 			var text = this.href;
 			alert(text);
 			//判断是否存在
 			if($('#tt').tabs("exists",this.title)){
 			//存在则选中
-				alert("存在了");
 				$('#tt').tabs("select",this.title);			
 			}else{
 				$('#tt').tabs('add', {
@@ -76,7 +76,7 @@
 					<li style="padding: 6px;"><a href="${proPath}/base/goURL/buyorder/insert.action" title="商品采购"
 						style="text-decoration: none;display: block;font-weight:bold;">商品采购</a>
 					</li>
-					<li style="padding: 6px;"><a href="${proPath}/base/goURL/goods/goodslist.action" title="商品退货"
+					<li style="padding: 6px;"><a href="${proPath}/base/goURL/returnorder/returnorder.action" title="商品退货"
 						style="text-decoration: none;display: block;font-weight:bold;">商品退货</a>
 					</li>
 				</ul>
@@ -92,7 +92,7 @@
 		style="padding:5px;background:#eee;">
 		<div id="tt" class="easyui-tabs" data-options="fit:true"
 			style="width:500px;height:250px;">
-			<div title="系统介绍" style="padding:20px;">这里可以写系统或公司的相关介绍等等 </div>
+			<div title="系统介绍" style="padding:20px;">进销存系统 </div>
 
 		</div>
 

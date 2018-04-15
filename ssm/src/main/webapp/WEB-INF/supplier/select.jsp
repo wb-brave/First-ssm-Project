@@ -50,16 +50,6 @@
 					
 					parent.$("#win").window("close");
 
-					
-					
-						//alert('新增按钮');
-					/* 	parent.$('#win').window({    
-							title :'添加供应商',						
-						    width:600,    
-						    height:400,    
-						    modal:true,
-						    content:"<iframe src='${proPath}/base/goURL/supplier/insert.action' height='100%' width='100%' frameborder='0px' ></iframe>"  
-						});  */
 					}
 						
 

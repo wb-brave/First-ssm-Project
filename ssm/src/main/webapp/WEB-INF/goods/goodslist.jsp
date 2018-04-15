@@ -37,13 +37,13 @@
 					text:'新增',
 					handler: function(){
 						alert('新增按钮');
-					/* 	parent.$('#win').window({    
+					 	parent.$('#win').window({    
 							title :'添加供应商',						
 						    width:600,    
 						    height:400,    
 						    modal:true,
-						    content:"<iframe src='${proPath}/base/goURL/supplier/insert.action' height='100%' width='100%' frameborder='0px' ></iframe>"  
-						});  */
+						    content:"<iframe src='${proPath}/base/goURL/goods/insert.action' height='100%' width='100%' frameborder='0px' ></iframe>"  
+						}); 
 					}
 						
 
@@ -53,7 +53,7 @@
 					handler: function(){
 						alert('修改按钮');
 						//判断是否选中一行，并且只能选中一行进行修改
-						/* var array = $('#dg').datagrid("getSelections");
+						var array = $('#dg').datagrid("getSelections");
 						if(array.length!=1){
 							alert("请选择需要修改的记录，并且只能选中一条！");
 							return false;							
@@ -65,8 +65,8 @@
 						    width:600,    
 						    height:400,    
 						    modal:true,
-						    content:"<iframe src='${proPath}/base/goURL/supplier/update.action' height='100%' width='100%' frameborder='0px' ></iframe>"  
-						});  */
+						    content:"<iframe src='${proPath}/base/goURL/goods/update.action' height='100%' width='100%' frameborder='0px' ></iframe>"  
+						});
 						
 					}
 				},'-',{
@@ -74,15 +74,14 @@
 					text:'删除',
 					handler: function(){
 						alert('删除按钮');
-					/* 	var array = $('#dg').datagrid("getSelections");
+					 	var array = $('#dg').datagrid("getSelections");
 						if(array.length>0){
-							alert("选中");
 							
 							
 							//定义数组，通过下边的用来存储选中记录的Id
 						var ids = new Array();
 						for (i = 0; i < array.length; i++) {
-							ids[i] = array[i].supId;
+							ids[i] = array[i].goodsId;
 							alert(ids[i]);
 						}
 						//alert("ids" + ids);
@@ -91,7 +90,7 @@
 							if (r) {
 								alert(r);
 								$.ajax({
-								  url: "${proPath}/supplier/deleteList.action",
+								  url: "${proPath}/goods/deleteList.action",
 								  type:"POST",
 								  //设置为传统方式传送参数
 								  traditional:true,
@@ -100,7 +99,7 @@
 									  if(html>0){
 									  	alert("恭喜您 ，删除成功，共删除了"+html+"条记录");
 									  }else{
-									  	alert("对不超 ，删除失败");
+									  	alert("对不起 ，删除失败");
 									  }
 								  //重新刷新页面
 								    $("#dg").datagrid("reload");
@@ -116,21 +115,11 @@
 
 							}
 						});
-
-							
-							
-							
-							
-							
-							
-							
-							
 							
 						}else{
 							alert("请选择需要删除的记录！");
 						}
 						
-						 */
 					}
 				},'-',{
 					text:"名称：<input type='text' id='goodsName' name='goodsName'/>",					

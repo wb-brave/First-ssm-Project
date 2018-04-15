@@ -8,7 +8,7 @@
 	<properties resource="conn.properties" />
 	  -->
 	  <!-- 处理1 -->
-	 <classPathEntry location="E:\DRIVER\mysql-connector-java-5.1.30.jar"/>
+	 <classPathEntry location="/Users/wufan/Desktop/wb/file/download/mysql-connector-java-5.1.30.jar"/>
 	<!-- 指定运行环境是mybatis3的版本 -->
 	<context id="testTables" targetRuntime="MyBatis3">
 
@@ -20,7 +20,7 @@
 		</commentGenerator>
 		<!-- 处理2   jdbc 连接信息 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/ssm?useUnicode=true&amp;characterEncoding=UTF-8" userId="root" password="lsx520">
+			connectionURL="jdbc:mysql://localhost:3306/ssm?useUnicode=true&amp;characterEncoding=UTF-8" userId="root" password="123456">
 		</jdbcConnection>
 		
         <!--处理3   targetPackage指定模型在生成在哪个包 ,targetProject指定项目的src,-->        
@@ -35,8 +35,10 @@
 		<!-- 处理5   配置dao接口生成信息-->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.wb.ssm.dao" targetProject="ssm/src/main/java" />
 
-		<table tableName="goods" domainObjectName="Goods"/>
+		<table tableName="account_records" domainObjectName="AccountRecords"/>
 			
-		<!--  <table tableName="supplier" domainObjectName="Supplier"/>  -->
+		<table tableName="buy_order_detail" domainObjectName="BuyOrderDetail"/>
+		
+		<table tableName="buy_order" domainObjectName="BuyOrder"/>
 	</context>
 </generatorConfiguration>

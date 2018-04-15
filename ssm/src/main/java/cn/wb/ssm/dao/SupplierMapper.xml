@@ -50,4 +50,12 @@
   		<if test="#{paramEntity.supAddress}!=null">and sup_address like #{paramEntity.supAddress}</if>
   	</where>
   </select>
+  
+  <!-- 通过主键批量删除供应商 -->
+  <delete id="deleteList">
+  	delete from supplier where sup_id in
+	<foreach collection="array" open="(" close=")" separator="," item="pk">
+		#{pk}
+	</foreach>
+	</delete>
 </mapper>

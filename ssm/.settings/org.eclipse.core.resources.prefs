@@ -1,6 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java/cn/wb/ssm/action/GoodsAction.java=UTF-8
+encoding//src/main/java/cn/wb/ssm/action/ReturnOrderAction.java=UTF-8
 encoding//src/main/java/cn/wb/ssm/entity/Page.java=UTF-8
 encoding//src/main/java/cn/wb/ssm/serviceimpl/BaseServiceImpl.java=UTF-8
+encoding//src/main/java/cn/wb/ssm/serviceimpl/SysParamServiceImpl.java=GBK
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/jsp/main.jsp=UTF-8

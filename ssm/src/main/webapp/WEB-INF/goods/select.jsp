@@ -20,11 +20,12 @@
 			    //url:'${proPath}/supplier/selectPage.action', //通过关键字查询
 			    //支持多条件查询
 			    url:'${proPath}/goods/selectPageUseDyc.action', 
-			    
+			    //datagrid的样式设计
 			    fitColumns:true,
 			    nowrapL:true,
 			    idField:'goodsId',
 			    rownumbers:true,
+			    //只能选择一行
 			    singleSelect:true,
 			    
 			    pagination:true,
@@ -124,8 +125,8 @@
 	<table id="dg"></table>
 <form  style="padding:5px;margin:0px;background:#eee;"  action="">
 采购数量：<input type="text" id='bodAmount' name='bodAmount' class="easyui-numberbox" value="1" data-options="min:1,max:1000000000">
-价格：<input type="text" id='bodBuyPrice' name='bodBuyPrice' class="easyui-numberbox"  value="22" data-options="min:0,precision:2">
-手机串号：<textarea  id='bodImeiList' name='bodImeiList'>3333</textarea>
+价格：<input type="text" id='bodBuyPrice' name='bodBuyPrice' class="easyui-numberbox"  value="99" data-options="min:0,precision:2">
+手机串号：<textarea  id='bodImeiList' name='bodImeiList'>666666</textarea>
 
 </form>
 

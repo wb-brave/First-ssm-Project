@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wb.ssm.dao.BuyOrderDetailMapper">
+  <resultMap id="BaseResultMap" type="cn.wb.ssm.entity.BuyOrderDetail">
+    <id column="bod_id" jdbcType="VARCHAR" property="bodId" />
+    <result column="goods_id" jdbcType="VARCHAR" property="goodsId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_unit" jdbcType="VARCHAR" property="goodsUnit" />
+    <result column="goods_type" jdbcType="VARCHAR" property="goodsType" />
+    <result column="goods_color" jdbcType="VARCHAR" property="goodsColor" />
+    <result column="bod_amount" jdbcType="INTEGER" property="bodAmount" />
+    <result column="bod_buy_price" jdbcType="DECIMAL" property="bodBuyPrice" />
+    <result column="bod_total_price" jdbcType="DECIMAL" property="bodTotalPrice" />
+    <result column="bo_id" jdbcType="VARCHAR" property="boId" />
+    <result column="bod_imei_list" jdbcType="LONGVARCHAR" property="bodImeiList" />
+  </resultMap>
+
+<!--多条插入  -->  
+  <insert id="insertList">
+    insert into buy_order_detail (bod_id, goods_id, goods_name, 
+      goods_unit, goods_type, goods_color, 
+      bod_amount, bod_buy_price, bod_total_price, 
+      bo_id, bod_imei_list)
+    values
+    <foreach collection="list" item="item" separator=",">
+     (#{item.bodId,jdbcType=VARCHAR}, #{item.goodsId,jdbcType=VARCHAR}, #{item.goodsName,jdbcType=VARCHAR}, 
+      #{item.goodsUnit,jdbcType=VARCHAR}, #{item.goodsType,jdbcType=VARCHAR}, #{item.goodsColor,jdbcType=VARCHAR}, 
+      #{item.bodAmount,jdbcType=INTEGER}, #{item.bodBuyPrice,jdbcType=DECIMAL}, #{item.bodTotalPrice,jdbcType=DECIMAL}, 
+      #{item.boId,jdbcType=VARCHAR}, #{item.bodImeiList,jdbcType=LONGVARCHAR})
+      </foreach>
+  </insert>
+  
+   <!-- 通过多条件分页查询，返回数据集 -->
+  <select id="selectPageListDyc" parameterType="page" resultMap="BaseResultMap" >
+    select * from buy_order_detail 
+    <where>
+    	<if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
+    </where>
+	 limit #{start},#{rows}
+  </select>
+  
+  <!-- 通过多条件分页查询，返回总记录数 -->
+  <select id="selectPageListDycCount" parameterType="page" resultType="Integer">
+  	select count(1) from buy_order_detail 
+  	  <where>
+    	<if test="paramEntity.goodsName!=null">and goods_name like #{paramEntity.goodsName}</if>
+    </where>
+  </select>
+  
+  <delete id="deleteList">
+  	delete from buy_order_detail where bod_id in
+	<foreach collection="array" open="(" close=")" separator="," item="pk">
+		#{pk}
+	</foreach>
+	</delete>
+</mapper>
