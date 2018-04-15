@@ -81,6 +81,16 @@
 					</li>
 				</ul>
 			</div>
+			
+			<div title="报表查询">
+				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
+				<ul style="list-style: none;padding: 0px;margin:0px;">
+					<li style="padding: 6px;"><a href="${proPath}/base/goURL/datareport/selectsupplier.action" title="供应商采购额统计"
+						style="text-decoration: none;display: block;font-weight:bold;">供应商采购额统计</a>
+					</li>
+					
+				</ul>
+			</div>
 		</div>
 
 

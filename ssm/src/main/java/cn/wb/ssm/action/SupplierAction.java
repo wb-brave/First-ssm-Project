@@ -116,4 +116,15 @@ public class SupplierAction extends BaseAction{
 		}
 		return i;
 	}
+	
+	@RequestMapping("/selectSupplier")
+	@ResponseBody
+	public Object selectSupplier(String start,String end){
+		System.out.println("start:"+ start+"||end:"+end);
+		Map<String, String> paramMap =new HashMap<String, String>();
+		paramMap.put("start", start);
+		paramMap.put("end", end);
+
+		return supplierService.selectSupplier(paramMap);
+	}
 }
