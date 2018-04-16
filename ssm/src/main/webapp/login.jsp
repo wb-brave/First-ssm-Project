@@ -6,27 +6,32 @@
 <head>
 
 
-<title>My JSP 'MyJsp.jsp' starting page</title>
+<title>系统登录界面</title>
 
 <script type="text/javascript">
-	
 </script>
+<style type="text/css">      
+     body{      
+        background-image: url(img/bg.jpg);      
+        background-size:cover;    
+     }      
+ </style> 
 </head>
 <body>
 	<div id="loginDiv">
 		<form id="ff" method="post" action="${proPath}/account/login.action">
-			<div>
-				<label for="accLogin">账号:</label>
+			<div style="align-content: center; margin-top: 15px">
+				<label for="accLogin" style="align-content: center; margin: 0px 0px 0px 30px" >账号:</label>
 				<!-- 采用 js验证 -->
-				<input type="text" name="accLogin"  />
+				<input type="text" name="accLogin" style="width: 200px;"  />
 			</div>
-			<div>
-				<label for="accPass">密码:</label>
-				<!-- 行内验证
-				<input class="easyui-validatebox" type="text" name="name"
-					data-options="required:true,missingMessage:'请填写密码！'" />
-					 -->
-				<input type="text" name="accPass" />
+			<div style="align-content: center; margin-top: 10px">
+				<label for="accPass" style="align-content: center; margin: 0px 0px 0px 30px">密码:</label>
+				<input type="text" name="accPass" style="width: 200px;" />
+			</div>
+			<div style="align-content: center; margin-left: 60px">
+				 <input class="text" name="vcode" type="text" placeholder="请输入验证码" style="width: 120px;margin-top: 10px;height: 24px">
+          		<img title="点击图片切换验证码" style="height: 24px; width:80px; margin-top: 10px; position: absolute;" id="vcodeImg" src="${proPath}/account/vcode.action"></div>
 			</div>
 		</form>
 		<div style="color:red">${requestScope.msg}</div>
@@ -40,6 +45,10 @@
 		//alert("ddddd");
 		//这里的大括号相关于写json格式的数据：{属性：值，属性：值}
 		//alert("ddddd");
+		//点击图片切换验证码
+		$("#vcodeImg").click(function(){
+   			 this.src = "${proPath}/account/vcode.action?t=" + new Date().getTime();
+		});
 		$("[name='accLogin']").validatebox({
 			required : true,
 			missingMessage : '请填写账号！'
@@ -48,14 +57,20 @@
 			required : true,
 			missingMessage : '请填写密码！'
 		});
+		$("[name='vcode']").validatebox({
+			required : true,
+			missingMessage : '请填写验证码！'
+		});
+		
+		
 		//禁用验证
 		$("#ff").form("disableValidation");
 		
 		//把div的内容作为对话框方式弹出
 		$('#loginDiv').dialog({
 			title : '登陆入口',
-			width : 250,
-			height : 150,
+			width : 300,
+			height : 180,
 			closed : false,
 			cache : false,
 			//设置关闭按钮可见
@@ -71,7 +86,6 @@
 					if($("#ff").form("validate")){
 					//提交
 							$("#ff").submit();
-					
 					}
 					
 				}
