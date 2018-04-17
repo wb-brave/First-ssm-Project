@@ -2,7 +2,7 @@
 <html>
 <head>
 <%@ include file="/common/common.jspf"%>
-<title>My JSP</title>
+<title>修改密码</title>
 </head>
 <body style="background-image: url('${proPath}/img/bg.jpg');">
 
@@ -19,8 +19,9 @@
 	</form>
 
 	<script type="text/javascript">
-			var win = parent.contentWindow;//返回ifram页面窗体对象（window)
-		
+	$(function() {
+			/* var win = parent.$("iframe[title='欢迎使用进销存管理系统']").get(0).contentWindow; */
+			//
 			/* var row = win.$('#dg').datagrid("getSelected"); */
 			//alert(row.supId);
 			
@@ -66,7 +67,8 @@
 										}else{
 											alert("修改失败！");
 										}
-										parent.window("close");
+										/* parent.$("#win").window("close"); */
+										window.location.href='${proPath}/account/login.action';
 								}
 							});
 						}
@@ -74,6 +76,7 @@
 					}
 				}]
 			});
+	});
 	</script>
 </body>
 </html>

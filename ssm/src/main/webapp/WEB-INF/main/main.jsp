@@ -50,7 +50,8 @@
 	<!-- 头部 -->
 	<div data-options="region:'north',title:'欢迎使用进销存管理系统',split:true"
 		style="height:130px; background-image: url('${proPath}/img/bghead2.jpg'); color : red">欢迎您 ：${sessionScope.acc.accLogin}
-		<a href="${proPath}/base/goURL/account/update.action" style="align-content: left: 0px; text-shadow: none;">修改密码</a>
+		<a href="${proPath}/base/goURL/account/update.action" style="margin-left: 900px ;text-decoration :none; position: absolute;">修改密码</a>
+		<a href="${proPath}/account/login.action" style="margin-left : 980px;text-decoration :none; position: absolute;">退出登录</a>
 		</div>
 	<!-- 左边导航 -->
 	<div data-options="region:'west',title:'导航菜单',split:true"

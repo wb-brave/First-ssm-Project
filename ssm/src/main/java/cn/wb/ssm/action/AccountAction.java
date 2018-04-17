@@ -33,7 +33,7 @@ public class AccountAction extends BaseAction{
 //		acc = accountService.login(account);
 		String sessionVcode = (String) session.getAttribute("vcode");
 		try {
-			if(sessionVcode != null) {
+			if(sessionVcode != null && vcode != null) {
 				if(!vcode.equalsIgnoreCase(sessionVcode)){
 					request.setAttribute("msg", "ÑéÖ¤Âë´íÎó!");
 					return "forward:/login.jsp";
