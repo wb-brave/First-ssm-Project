@@ -49,15 +49,17 @@
 <body class="easyui-layout">
 	<!-- 头部 -->
 	<div data-options="region:'north',title:'欢迎使用进销存管理系统',split:true"
-		style="height:130px; background-image: url('${proPath}/img/bghead2.jpg'); color : red">欢迎您 ：${sessionScope.acc.accLogin}</div>
+		style="height:130px; background-image: url('${proPath}/img/bghead2.jpg'); color : red">欢迎您 ：${sessionScope.acc.accLogin}
+		<a href="${proPath}/base/goURL/account/update.action" style="align-content: left: 0px; text-shadow: none;">修改密码</a>
+		</div>
 	<!-- 左边导航 -->
 	<div data-options="region:'west',title:'导航菜单',split:true"
-		style="width:150px; background-image: url('${proPath}/img/bghead1.jpg');">
+		style="width:150px; background-image: url('${proPath}/img/bghead3.jpg');">
 
 		<div id="aa" class="easyui-accordion"
-			style="width:300px;height:200px; background-image: url('${proPath}/img/bghead1.jpg');">
+			style="width:300px;height:200px; background-image: url('${proPath}/img/bghead3.jpg');">
 
-			<div title="基础数据录入" style="background-image: url('${proPath}/img/bghead1.jpg');">
+			<div title="基础数据录入" style="background-image: url('${proPath}/img/bghead3.jpg');">
 
 
 				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
@@ -74,7 +76,7 @@
 
 
 			
-			<div title="采购管理" style="background-image: url('${proPath}/img/bghead1.jpg');">
+			<div title="采购管理" style="background-image: url('${proPath}/img/bghead3.jpg');">
 
 
 				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
@@ -88,7 +90,7 @@
 				</ul>
 			</div>
 			
-			<div title="报表查询" style="background-image: url('${proPath}/img/bghead1.jpg');">
+			<div title="报表查询" style="background-image: url('${proPath}/img/bghead3.jpg');">
 				<!-- list-style: none去左边的点；text-decoration: none：去超链接下划线,title用来区分后继定位这里的超链接 -->
 				<ul style="list-style: none;padding: 0px;margin:0px;">
 					<li style="padding: 6px;"><a href="${proPath}/base/goURL/datareport/selectsupplier.action" title="供应商采购额统计"
@@ -105,10 +107,10 @@
 
 	<!-- 主体内容 -->
 	<div data-options="region:'center',title:'主要信息'"
-		style="padding:5px; background-image: url('${proPath}/img/bghead1.jpg');">
+		style="padding:5px; background-image: url('${proPath}/img/bghead3.jpg');">
 		<div id="tt" class="easyui-tabs" data-options="fit:true"
 			style="width:500px;height:250px;">
-			<div title="系统介绍" style="padding:20px; color:red; background-image: url('${proPath}/img/bghead1.jpg');" >进销存系统 </div>
+			<div title="系统介绍" style="padding:20px; color:red; background-image: url('${proPath}/img/bghead3.jpg');" >进销存系统 </div>
 
 		</div>
 

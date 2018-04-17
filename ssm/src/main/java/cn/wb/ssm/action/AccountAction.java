@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.wb.ssm.entity.Account;
+import cn.wb.ssm.entity.Goods;
 import cn.wb.ssm.service.AccountService;
 import cn.wb.ssm.utils.VcodeGenerate;
 
@@ -64,4 +65,23 @@ public class AccountAction extends BaseAction{
         //输出图像
         ImageIO.write(vImg, "gif", response.getOutputStream());
     }
+	
+
+	@RequestMapping(value="/update")
+	@ResponseBody //如果返回json格式，需要这个注解，这里用来测试环境
+	public int update(Account account, String accPass2){
+		int i = 0;
+		if(account != null) {
+			if(!account.getAccPass().equals(accPass2)) {
+				return -1;
+			}
+		}
+		try {
+			i = accountService.update(account);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return i;
+	}
 }

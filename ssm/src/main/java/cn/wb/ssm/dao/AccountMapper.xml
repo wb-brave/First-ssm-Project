@@ -11,4 +11,11 @@
   	<select id="login" parameterType="cn.wb.ssm.entity.Account" resultMap="accountResultMap">
   		select * from account where acc_login = #{accLogin} and acc_pass = #{accPass};
   	</select>
+  	
+  	<update id="update" parameterType="cn.wb.ssm.entity.Account" >
+		update account set
+		acc_pass=#{accPass}
+		where
+		acc_login=#{accLogin}	
+	</update>
 </mapper>
