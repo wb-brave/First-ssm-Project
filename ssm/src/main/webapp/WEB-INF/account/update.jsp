@@ -8,10 +8,10 @@
 
 	<form id="ff" method="post" >
 	   <div>
-			<label for="accLogin" style="align-content: center; margin: 0px 0px 0px 30px" >用户:</label> <input readonly="readonly" type="text" name="accLogin" value="${sessionScope.acc.accLogin}"/>
+			<label for="accLogin" style="align-content: center; margin: 0px 0px 0px 30px" >用户:</label> <input readonly="readonly" type="text" name="accLogin" value="${sessionScope.acc}"/>
 		</div>
 		<div>
-			<label for="accPass" style="align-content: center; margin: 0px 0px 0px 30px">密码:</label><input type="password" name="accPass" value="${sessionScope.acc.accPass}"/>
+			<label for="accPass" style="align-content: center; margin: 0px 0px 0px 30px">密码:</label><input type="password" name="accPass" value="${sessionScope.pass}"/>
 		</div>
 		<div>
 			<label for="accPass" style="align-content: center; margin: 0px 0px 0px 30px">确认密码:</label> <input type="password" name="accPass2" />
@@ -62,13 +62,16 @@
 								},
 								success : function(count) {							
 										//可以定义为对应消息框
+										alert(count);
 										if(count>0){
 											alert("修改成功！");									
+											window.location.href='${proPath}/account/login.action';
+										}else if(count==-3){
+											window.location.href='${proPath}/noPermissionUI.jsp';
 										}else{
 											alert("修改失败！");
 										}
 										/* parent.$("#win").window("close"); */
-										window.location.href='${proPath}/account/login.action';
 								}
 							});
 						}

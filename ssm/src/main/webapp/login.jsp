@@ -12,7 +12,7 @@
 </script>
 <style type="text/css">      
      body{      
-        background-image: url(img/bg.jpg);      
+        background-image: url('${proPath}/img/bg.jpg');      
         background-size:cover;    
      }      
  </style> 
@@ -90,10 +90,10 @@
 					
 				}
 			},{
-				text:'取消',
+				text:'用户登录',
 				handler:function(){
-
-			}
+					window.location.href='${proPath}/user/loginUI.action';
+				}
 			}]
 			
 		});

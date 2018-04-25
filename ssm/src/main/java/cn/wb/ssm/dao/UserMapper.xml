@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wb.ssm.dao.UserMapper">
+  <resultMap id="userResultMap" type="cn.wb.ssm.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_login" jdbcType="VARCHAR" property="userLogin" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_pass" jdbcType="VARCHAR" property="userPass" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    <result column="user_remark" jdbcType="VARCHAR" property="userRemark" />
+    <result column="user_type" jdbcType="VARCHAR" property="userType" />
+  </resultMap>
+  
+  <select id="login" parameterType="cn.wb.ssm.entity.User" resultMap="userResultMap">
+  		select * from user where user_login = #{userLogin} and user_pass = #{userPass};
+  	</select>
+
+  
+  <insert id="insert" parameterType="cn.wb.ssm.entity.User">
+    insert into user (user_id, user_login, user_name, 
+      user_pass, user_phone, user_address, 
+      user_remark, user_type)
+    values (#{userId,jdbcType=INTEGER}, #{userLogin,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{userPass,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{userAddress,jdbcType=VARCHAR}, 
+      #{userRemark,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR})
+  </insert>
+  
+  
+  <update id="update" parameterType="cn.wb.ssm.entity.User">
+    update user
+    set user_login = #{userLogin,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_pass = #{userPass,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_address = #{userAddress,jdbcType=VARCHAR},
+      user_remark = #{userRemark,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  
+   <select id="selectPageListDyc" parameterType="cn.wb.ssm.entity.Page" resultMap="userResultMap">
+  	select * from user
+  	<where>
+  		<if test="#{paramEntity.userName}!=null">and user_Login like #{paramEntity.userLogin}</if>
+  		<!-- <if test="#{paramEntity.userAddress}!=null">and user_address like #{paramEntity.userAddress}</if> -->
+  	</where>
+  	limit #{start},#{rows}
+  </select>
+
+  <select id="selectPageListDycCount" parameterType="cn.wb.ssm.entity.Page" resultType="Integer">
+  	select count(*) from user
+  	<where>
+  		<if test="#{paramEntity.userName}!=null">and user_Login like #{paramEntity.userLogin}</if>
+  		<!-- <if test="#{paramEntity.userAddress}!=null">and user_address like #{paramEntity.userAddress}</if> -->
+  	</where>
+  </select>
+  
+  <!-- 通过主键批量删除供应商 -->
+  <delete id="deleteList">
+  	delete from user where user_id in
+	<foreach collection="array" open="(" close=")" separator="," item="pk">
+		#{pk}
+	</foreach>
+	</delete>
+	
+	<update id="updatePass" parameterType="cn.wb.ssm.entity.User" >
+		update user set
+		user_pass=#{userPass}
+		where
+		user_login=#{userLogin}	
+	</update>
+</mapper>

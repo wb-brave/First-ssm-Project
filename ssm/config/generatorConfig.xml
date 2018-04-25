@@ -35,10 +35,7 @@
 		<!-- 处理5   配置dao接口生成信息-->
 		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.wb.ssm.dao" targetProject="ssm/src/main/java" />
 
-		<table tableName="account_records" domainObjectName="AccountRecords"/>
+		<table tableName="user" domainObjectName="User"/>
 			
-		<table tableName="buy_order_detail" domainObjectName="BuyOrderDetail"/>
-		
-		<table tableName="buy_order" domainObjectName="BuyOrder"/>
 	</context>
 </generatorConfiguration>

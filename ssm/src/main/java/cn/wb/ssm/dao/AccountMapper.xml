@@ -18,4 +18,42 @@
 		where
 		acc_login=#{accLogin}	
 	</update>
+	
+	  <insert id="insert" parameterType="cn.wb.ssm.entity.Account">
+		insert into account
+		(acc_id,acc_login,acc_name,acc_pass)
+		values
+		(#{accId},#{accLogin},#{accName},#{accPass});
+	</insert>
+	
+	<select id="selectPageListDyc" parameterType="cn.wb.ssm.entity.Page" resultMap="accountResultMap">
+  	select * from account
+  	<where>
+  		<if test="#{paramEntity.accLogin}!=null">and acc_login like #{paramEntity.accLogin}</if>
+  	</where>
+  	limit #{start},#{rows}
+  </select>
+
+  <select id="selectPageListDycCount" parameterType="cn.wb.ssm.entity.Page" resultType="Integer">
+  	select count(*) from account
+  	<where>
+  		<if test="#{paramEntity.accLogin}!=null">and acc_login like #{paramEntity.accLogin}</if>
+  	</where>
+  </select>
+  
+  <delete id="deleteList">
+  	delete from account where acc_id in
+	<foreach collection="array" open="(" close=")" separator="," item="pk">
+		#{pk}
+	</foreach>
+	</delete>
+	
+	<select id="select" parameterType="cn.wb.ssm.entity.Account" resultType="Account">
+  	select * from account where acc_login=#{accLogin};
+  </select>
+  
+  
+  <select id="selects" resultMap="accountResultMap">
+  	select * from account;
+  </select>
 </mapper>

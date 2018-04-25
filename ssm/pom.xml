@@ -231,6 +231,11 @@
 	    <artifactId>hibernate-validator</artifactId>
 	    <version>5.2.4.Final</version>
 	</dependency>
+	<dependency>
+         <groupId>org.apache.poi</groupId>
+         <artifactId>poi</artifactId>
+         <version>3.10-FINAL</version>
+     </dependency>
   </dependencies>
   <build>
     <finalName>ssm</finalName>

@@ -339,6 +339,51 @@ create table return_order_detail
    primary key (rod_id)
 );
 
+drop table if exists user;
+
+/*============================*/
+/* Table: 用户表结构 		  */
+/*============================*/
+create table user
+(
+   /* 用户编号,自动增长 */
+   user_id                  int not null ,
+   /* 用户登录名  */
+   user_login               varchar(20),
+   /* 用户姓名  */
+   user_name                varchar(20),
+   /* 用户密码 */
+   user_pass                varchar(20),
+   user_phone            varchar(11),
+   user_address          varchar(100),
+   user_remark           varchar(100),
+   user_type             varchar(10),
+   /* 设置编号为主键 */
+   primary key (user_id)
+);
+
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (1,'xz','zxz','123456','12388888887','广州花都','员工',1);
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (2,'xm','小明','223456','22388888887','广州花都','员工',1);
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (3,'xw','小吴','323456','32388888887','广州花都','员工',1);
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (4,'xq','小乔','423456','42388888887','广州花都','员工',1);
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (5,'xw','小王','523456','52388888887','广州花都','员工',1);
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (6,'xb','小彬','623456','62388888887','广州花都','员工',1);
+
+insert into user(user_id,user_login,user_name,user_pass,user_phone,user_address,user_remark,user_type)
+values (7,'xt','小天','723456','72388888887','广州花都','员工',1);
+
 select * from account;
 select * from supplier;
 select * from goods;

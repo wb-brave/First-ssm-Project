@@ -1,5 +1,7 @@
 package cn.wb.ssm.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,12 @@ public class AccountServiceImpl extends BaseServiceImpl<Account> implements Acco
 		return accountMapper.login(account);
 	}
 
+	@Override
+	public List<Account> selects() {
+		
+		return accountMapper.selects();
+	}
+
+	
 
 }

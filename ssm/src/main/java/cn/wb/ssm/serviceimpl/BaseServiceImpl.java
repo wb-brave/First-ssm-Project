@@ -15,6 +15,7 @@ import cn.wb.ssm.dao.BuyOrderMapper;
 import cn.wb.ssm.dao.GoodsMapper;
 import cn.wb.ssm.dao.SupplierMapper;
 import cn.wb.ssm.dao.SysParamMapper;
+import cn.wb.ssm.dao.UserMapper;
 import cn.wb.ssm.entity.Page;
 import cn.wb.ssm.service.BaseService;
 
@@ -42,6 +43,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	
 	@Autowired
 	protected  SysParamMapper sysParamMapper;
+	
+	@Autowired
+	protected  UserMapper userMapper;
 	
 	@PostConstruct//在构造方法后，初化前执行
 	private void initBaseMapper() throws Exception{
