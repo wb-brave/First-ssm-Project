@@ -60,17 +60,20 @@ body {
 		style="height:130px; background-image: url('${proPath}/img/top1.jpg'); color : red">
 		欢迎您 ：${sessionScope.acc}
 		<c:if test="${sessionScope.flag==0}">
-			<a href="${proPath}/base/goURL/account/update.action" style="margin-left: 920px ;text-decoration :none; position: absolute; color: red">修改密码</a>
+			<a href="${proPath}/base/goURL/account/update.action" style="margin-left: 900px ;text-decoration :none; position: absolute; color: red">修改密码</a>
+		</c:if>
+		<c:if test="${sessionScope.flag==2}">
+			<a href="${proPath}/base/goURL/account/update.action" style="margin-left: 900px ;text-decoration :none; position: absolute; color: red">修改密码</a>
 		</c:if>
 		<c:if test="${sessionScope.flag==1}">
-			<a href="${proPath}/base/goURL/user/updatepass.action" style="margin-left: 920px ;text-decoration :none; position: absolute; color: red">修改密码</a>
+			<a href="${proPath}/base/goURL/user/updatepass.action" style="margin-left: 900px ;text-decoration :none; position: absolute; color: red">修改密码</a>
 		</c:if>
 		
 		<c:if test="${sessionScope.flag==0}">
-			<a href="${proPath}/account/login.action" style="margin-left : 1000px;text-decoration :none; position: absolute; color: red">退出登录</a>
+			<a href="${proPath}/account/login.action" style="margin-left : 960px;text-decoration :none; position: absolute; color: red">退出登录</a>
 		</c:if>
 		<c:if test="${sessionScope.flag==1}">
-			<a href="${proPath}/user/login.action" style="margin-left : 1000px;text-decoration :none; position: absolute; color: red">退出登录</a>
+			<a href="${proPath}/user/login.action" style="margin-left : 960px;text-decoration :none; position: absolute; color: red">退出登录</a>
 		</c:if>
 	</div>
 	<!-- 左边导航 -->
@@ -168,7 +171,7 @@ body {
 
 	<!-- 主体内容 -->
 	<div data-options="region:'center',title:'主要信息'"
-		style="padding:5px; background-image: url('${proPath}/img/bghead3.jpg');">
+		style="padding:5px;">
 		<div id="tt" class="easyui-tabs" data-options="fit:true"
 			style="width: 500px; height: 250px;">
 			<div title="系统介绍"

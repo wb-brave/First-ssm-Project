@@ -37,7 +37,7 @@
 					text:'新增',
 					handler: function(){
 						/* alert('新增按钮'); */
-						if(${sessionScope.flag==0}){
+						if(${sessionScope.flag==0} || ${sessionScope.flag==2}){
 							parent.$('#win').window({    
 								title :'添加用户',						
 							    width:600,    
@@ -58,7 +58,7 @@
 					handler: function(){
 						/* alert('修改按钮'); */
 						//判断是否选中一行，并且只能选中一行进行修改
-						if(${sessionScope.flag==0}){
+						if(${sessionScope.flag==0} || ${sessionScope.flag==2}){
 							var array = $('#dg').datagrid("getSelections");
 							if(array.length!=1){
 								alert("请选择需要修改的记录，并且只能选中一条！");
@@ -83,7 +83,7 @@
 					text:'删除',
 					handler: function(){
 						/* alert('删除按钮'); */
-						if(${sessionScope.flag==0}){
+						if(${sessionScope.flag==0} || ${sessionScope.flag==2}){
 							var array = $('#dg').datagrid("getSelections");
 							if(array.length>0){
 								

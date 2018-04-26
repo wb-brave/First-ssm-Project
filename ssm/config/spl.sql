@@ -146,6 +146,7 @@ create table supplier
 /* 添加帐户数据, */
 insert into account (acc_login,acc_pass) values ('admin','admin');
 insert into account (acc_login,acc_pass) values ('admin2','admin2');
+insert into account (acc_login,acc_pass,acc_name) values ('supAdmin','123456','wubin');
 
 /* 添加供应商数据, */
 insert into supplier (sup_id,sup_name,sup_linkman,sup_phone,sup_address,sup_remark,sup_pay,sup_type) values (1,'苹果供应商','小张','12388888887','广州花都','普通供应商',0,1);

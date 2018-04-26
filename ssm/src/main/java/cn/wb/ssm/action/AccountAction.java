@@ -46,7 +46,15 @@ public class AccountAction extends BaseAction{
 		if(acc!=null){
 			session.setAttribute("acc", acc.getAccLogin());
 			session.setAttribute("pass", acc.getAccPass());
-			session.setAttribute("flag", "0");
+			if(acc.getAccName() != null) {
+				if(acc.getAccName().equals("wubin")) {
+					session.setAttribute("flag", "0");
+				}else {
+					session.setAttribute("flag", "2");
+				}
+			}else {
+				session.setAttribute("flag", "2");
+			}
 			return "forward:/WEB-INF/main/main.jsp";
 		}else{
 			request.setAttribute("msg", "用户名或密码错误！！！！");
