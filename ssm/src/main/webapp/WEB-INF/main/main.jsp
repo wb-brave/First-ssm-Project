@@ -58,7 +58,7 @@ body {
 	<!-- 头部 -->
 	<div data-options="region:'north',title:'欢迎使用进销存管理系统',split:true"
 		style="height:130px; background-image: url('${proPath}/img/top1.jpg'); color : red">
-		欢迎您 ：${sessionScope.acc}
+		<span style="font-size: 20px">欢迎您 ：</span>${sessionScope.acc}
 		<c:if test="${sessionScope.flag==0}">
 			<a href="${proPath}/base/goURL/account/update.action" style="margin-left: 900px ;text-decoration :none; position: absolute; color: red">修改密码</a>
 		</c:if>
@@ -70,7 +70,7 @@ body {
 		</c:if>
 		
 		<c:if test="${sessionScope.flag==0}">
-			<a href="${proPath}/account/login.action" style="margin-left : 960px;text-decoration :none; position: absolute; color: red">退出登录</a>
+			<a href="${proPath}/account/login.action" style="margin-left : 960px;text-decoration :none; position: absolute; color: red;">退出登录</a>
 		</c:if>
 		<c:if test="${sessionScope.flag==1}">
 			<a href="${proPath}/user/login.action" style="margin-left : 960px;text-decoration :none; position: absolute; color: red">退出登录</a>
