@@ -93,7 +93,11 @@
 							for (i = 0; i < array.length; i++) {
 								ids[i] = array[i].userId;
 								alert(ids[i]);
-							}
+								var ad = '${sessionScope.acc}';
+								var ad1 = array[i].accLogin.trim();
+							if(ad==ad1){
+								alert("不允许的操作！！！");
+							}else{
 							//alert("ids" + ids);
 							//如果需要锁整个页面，前面加parent.
 							parent.$.messager.confirm('删除对话框', '您确认要删除吗？', function(r) {
@@ -125,6 +129,8 @@
 	
 								}
 							});
+							}
+							}
 						}else{
 							alert("请选择需要删除的记录！");
 						}
