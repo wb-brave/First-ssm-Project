@@ -156,8 +156,18 @@
 				title : '供应商类型',
 				width : 100,
 				formatter: function(value,row,index){
-					var str = "${applicationScope.sysParam.supType}";			
-					return valueToText(str,value);				
+					var str = "${applicationScope.sysParam.supType}";		
+					str = str.substring(1, str.length - 1);
+					var array = str.split(",");
+					for ( var i = 0; i < array.length; i++) {
+						var array2 = array[i].split("=");
+						//添加去除空格的方法 防止js的bug（乱七八糟的看不见的空格）
+						if ($.trim(array2[0]) == $.trim(value)) {
+							return array2[1];
+						}
+					}
+					
+					return "1";
 				}
 				
 			}, {
@@ -177,8 +187,6 @@
 		
 			$('#supAddress').searchbox({ 
 			searcher:function(value,name){ 
-				alert("supAddress:"+value); 
-				alert("supName:"+$('#supName').val());
 				$('#dg').datagrid('load',{
 					supName: '%'+$('#supName').val()+'%',
 					supAddress:'%'+value+'%'		

@@ -8,6 +8,8 @@
     <result column="sup_phone" property="supPhone" jdbcType="VARCHAR" />
     <result column="sup_address" property="supAddress" jdbcType="VARCHAR" />
     <result column="sup_remark" property="supRemark" jdbcType="VARCHAR" />
+    <result column="sup_pay" property="supPay"/>
+    <result column="sup_type" property="supType"/>
   </resultMap>
   
   <insert id="insert" parameterType="supplier">
